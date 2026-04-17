@@ -18,13 +18,66 @@
     <h1>Привет, ментор!</h1>
     <p>Это моя первая стилизованная страница.</p>
 
-    <button class="my-button">Нажми меня</button>
+    <button id="myButton" class="my-btn">Нажми меня</button>
 
     <div class="cards">
         <div class="card">Карточка 1</div>
         <div class="card">Карточка 2</div>
         <div class="card">Карточка 3</div>
     </div>
+
+    <p id="demoText">Этот текст изменится при нажатии на кнопку.</p>
+    <button id="changeTextBtn" class="my-btn">Изменить текст</button>
+
+    <button id="toggleSecretBtn" class="my-btn">Показать секрет</button>
+
+    <div id="secretBlock" style="display: none; margin-top: 20px; padding: 20px; background-color: #ffc107; border-radius: 10px;">
+        🎉 Ты нашёл секретный блок! Это JavaScript управляет отображением.
+    </div>
+
+    <p>Счётчик кликов: <span id="counter">0</span></p>
+    <button id="counterBtn" class="my-btn">Кликни</button>
+
+    <script>
+        // Находим кнопку по её id
+        const button = document.getElementById('myButton');
+
+        // Говорим: когда по кнопке кликнут — покажи сообщение
+        button.addEventListener('click', function() {
+            alert('Ты нажал на кнопку! Молодец.');
+        });
+
+        const changeBtn = document.getElementById('changeTextBtn');
+        const demoText = document.getElementById('demoText');
+
+        changeBtn.addEventListener('click', function() {
+            demoText.textContent = 'Текст был изменён с помощью JavaScript! 🎉';
+        });
+
+        const toggleBtn = document.getElementById('toggleSecretBtn');
+        const secretBlock = document.getElementById('secretBlock');
+
+        toggleBtn.addEventListener('click', function() {
+            if (secretBlock.style.display === 'none') {
+                secretBlock.style.display = 'block';
+                toggleBtn.textContent = 'Скрыть секрет';
+            } else {
+                secretBlock.style.display = 'none';
+                toggleBtn.textContent = 'Показать секрет';
+            }
+        });
+
+        let count = 0;
+        const counterSpan = document.getElementById('counter');
+        const counterBtn = document.getElementById('counterBtn');
+
+        counterBtn.addEventListener('click', function() {
+            count++;
+            counterSpan.textContent = count;
+        });
+
+        
+    </script>
 
 </body>
 </html>
